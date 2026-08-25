@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Dhahabi Enterprise — Soluciones Globales Integradas</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhahabi: {
+                            purple: '#8B5CF6',    /* Violeta de los logos */
+                            deepPurple: '#6D28D9',/* Violeta oscuro */
+                            cyan: '#06B6D4',      /* Turquesa / Cyan de Dhahabi Market */
+                            darkBg: '#080B13',    /* Fondo ultra oscuro elegante */
+                            cardBg: '#0F172A',    /* Fondo de tarjetas */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Ocultar la barra flotante predeterminada de Google Translate -->
+    <style>
+        .goog-te-banner-frame { display: none !important; }
+        body { top: 0px !important; }
+        #google_translate_element { display: none; }
+    </style>
+
+</head>
+<body class="bg-[#080b13] dark:bg-[#080b13] text-slate-900 dark:text-slate-100 font-sans antialiased transition-colors duration-300 selection:bg-dhahabi-cyan selection:text-slate-950">
+    <!-- Elemento invisible que utiliza el motor de Google Translate -->
+    <div id="google_translate_element"></div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="border-b border-slate-800/80 bg-[#080b13]/90 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+            
+            <!-- BRAND LOGO -->
+            <a href="#" class="flex items-center gap-3 group focus:outline-none">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-dhahabi-purple to-dhahabi-cyan p-[2px] transition-transform duration-300 group-hover:scale-105">
+            <div class="w-full h-full bg-white dark:bg-[#080b13] rounded-[10px] flex items-center justify-center">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-dhahabi-purple to-dhahabi-cyan font-extrabold text-xl">D</span>
+            </div>
+        </div>
+        <div class="flex flex-col">
+            <span class="text-lg font-black tracking-tight text-slate-900 dark:text-white leading-none">dhahabi</span>
+            <span class="text-[10px] uppercase tracking-widest text-dhahabi-cyan font-bold">Enterprise</span>
+        </div>
+    </a>
+
+            <!-- NAV LINKS -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#ecosystem" class="hover:text-dhahabi-cyan transition-colors">Ecosistema</a>
+                <a href="#about" class="hover:text-dhahabi-cyan transition-colors">Nosotros</a>
+                <a href="#contact" class="hover:text-dhahabi-cyan transition-colors">Contacto</a>
+            </nav>
+            
+            <!-- HEADER CONTROLS -->
+            <div class="flex items-center gap-3">
+               <!-- Selector de Idioma -->
+                <div class="relative" id="custom-dropdown-lang">
+                    <button type="button" onclick="toggleCustomDropdown('lang')" class="text-xs font-semibold px-3 py-2 rounded-xl border border-slate-700 bg-slate-900/80 text-slate-200 hover:border-dhahabi-cyan focus:outline-none flex items-center gap-2 transition-all duration-300 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)]">
+                        <span id="lang-selected-text">ESPAÑOL</span>
+                        <svg class="w-3 h-3 text-slate-400 transition-transform duration-200" id="lang-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-options" class="absolute right-0 z-50 w-28 mt-2 bg-slate-900 border border-slate-700 rounded-xl shadow-2xl hidden overflow-hidden">
+                        <div onclick="selectLanguageOption('es', 'ESPAÑOL')" class="px-3 py-2 text-xs font-semibold text-slate-200 hover:bg-dhahabi-purple/20 hover:text-dhahabi-cyan cursor-pointer transition">ESPAÑOL</div>
+                        <div onclick="selectLanguageOption('en', 'ENGLISH')" class="px-3 py-2 text-xs font-semibold text-slate-200 hover:bg-dhahabi-purple/20 hover:text-dhahabi-cyan cursor-pointer transition">ENGLISH</div>
+                        <div onclick="selectLanguageOption('sw', 'SWAHILI')" class="px-3 py-2 text-xs font-semibold text-slate-200 hover:bg-dhahabi-purple/20 hover:text-dhahabi-cyan cursor-pointer transition">SWAHILI</div>
+                        <div onclick="selectLanguageOption('ar', 'العربية')" class="px-3 py-2 text-xs font-semibold text-slate-200 hover:bg-dhahabi-purple/20 hover:text-dhahabi-cyan cursor-pointer transition">العربية</div>
+                    </div>
+                </div>
+                <button type="button" onclick="toggleTheme()" class="p-2 rounded-xl border border-slate-700 bg-slate-900/80 text-slate-200 hover:border-dhahabi-cyan focus:outline-none transition-all duration-300 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)] flex items-center justify-center" aria-label="Cambiar tema">
+        <!-- Ícono Sol (Tema Claro) -->
+        <svg id="theme-sun" class="w-4 h-4 text-amber-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+        <!-- Ícono Luna (Tema Oscuro) -->
+        <svg id="theme-moon" class="w-4 h-4 text-dhahabi-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+    </button>
+</div>
+                
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[85vh] flex items-center justify-center text-center px-4 overflow-hidden border-b border-slate-800/60">
+        <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-dhahabi-purple/20 rounded-full blur-[140px] pointer-events-none"></div>
+        <div class="absolute top-1/2 right-10 w-[400px] h-[400px] bg-dhahabi-cyan/15 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto py-16">
+            <span class="text-xs uppercase tracking-widest bg-gradient-to-r from-dhahabi-purple/20 to-dhahabi-cyan/20 text-dhahabi-cyan px-4 py-1.5 rounded-full font-bold border border-dhahabi-cyan/30 inline-block mb-6 shadow-sm">
+                ECOSISTEMA EMPRESARIAL DH&E
+            </span>
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight leading-tight mb-6">
+                <span>Tu puerta al</span> 
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-dhahabi-purple via-purple-300 to-dhahabi-cyan">Mercado Global</span> 
+                <span>y Logística</span>
+            </h1>
+            <p class="text-slate-300 text-base sm:text-xl max-w-2xl mx-auto font-normal leading-relaxed mb-10">
+                Accede a nuestro ecosistema digital: comercio electrónico, soluciones corporativas de agencia y logística internacional de carga en un solo portal integral.
+            </p>
+
+            <div class="relative max-w-xl mx-auto mb-10">
+                <div class="flex items-center bg-slate-900/90 border border-slate-700/80 rounded-2xl p-2.5 shadow-2xl focus-within:border-dhahabi-cyan transition-colors">
+                    <svg class="w-5 h-5 text-slate-400 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    <input type="text" id="search-input" oninput="filterSuggestions(this.value)" placeholder="¿Qué servicio de Dhahabi necesitas hoy? (Market, Agency, Shehena...)" class="w-full bg-transparent px-4 py-2 text-sm focus:outline-none text-slate-100 placeholder-slate-500">
+                </div>
+                <div id="suggestions-box" class="hidden absolute left-0 right-0 mt-2 bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl overflow-hidden z-20 text-left"></div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#ecosystem" class="bg-gradient-to-r from-dhahabi-purple to-dhahabi-cyan hover:opacity-95 text-slate-950 font-bold px-8 py-3.5 rounded-xl transition-all duration-300 shadow-[0_0_25px_rgba(139,92,246,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)]">
+                    Explorar Ecosistema ➔
+                </a>
+            </div>
+        </div>
+    </section>
+
+<section class="max-w-7xl mx-auto px-4 py-20">
+    <div class="text-center mb-16">
+        <h2 class="text-xs uppercase tracking-widest text-dhahabi-cyan font-bold mb-2">PROCESO SIMPLE</h2>
+        <h3 class="text-3xl sm:text-4xl font-black text-white">¿Cómo Funciona Dhahabi Enterprise?</h3>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        <!-- Paso 1 -->
+        <div class="glass-card rounded-3xl p-8 relative overflow-hidden group">
+            <div class="text-5xl font-black text-dhahabi-purple/20 absolute top-4 right-6 group-hover:text-dhahabi-purple/40 transition">01</div>
+            <div class="w-12 h-12 rounded-2xl bg-dhahabi-purple/20 text-dhahabi-purple flex items-center justify-center font-bold text-xl mb-6">1</div>
+            <h4 class="text-xl font-bold text-white mb-3">Elige tu Plataforma</h4>
+            <p class="text-slate-400 text-sm leading-relaxed">Selecciona entre Dhahabi Market para comercio, Dhahabi Agency para consultoría o Shehena para logística.</p>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="glass-card rounded-3xl p-8 relative overflow-hidden group">
+            <div class="text-5xl font-black text-dhahabi-cyan/20 absolute top-4 right-6 group-hover:text-dhahabi-cyan/40 transition">02</div>
+            <div class="w-12 h-12 rounded-2xl bg-dhahabi-cyan/20 text-dhahabi-cyan flex items-center justify-center font-bold text-xl mb-6">2</div>
+            <h4 class="text-xl font-bold text-white mb-3">Gestiona tu Solicitud</h4>
+            <p class="text-slate-400 text-sm leading-relaxed">Navega por el catálogo de productos, cotiza servicios corporativos o programa envíos en tiempo real.</p>
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="glass-card rounded-3xl p-8 relative overflow-hidden group">
+            <div class="text-5xl font-black text-dhahabi-purple/20 absolute top-4 right-6 group-hover:text-dhahabi-purple/40 transition">03</div>
+            <div class="w-12 h-12 rounded-2xl bg-dhahabi-purple/20 text-dhahabi-purple flex items-center justify-center font-bold text-xl mb-6">3</div>
+            <h4 class="text-xl font-bold text-white mb-3">Seguimiento Directo</h4>
+            <p class="text-slate-400 text-sm leading-relaxed">Recibe notificaciones en tu móvil y atención personalizada constante a través de nuestros canales oficiales.</p>
+        </div>
+    </div>
+</section>
+    <!-- METRICS & IMPACT SECTION -->
+<section class="border-y border-slate-800/80 bg-slate-900/30 py-12 px-4">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="space-y-1">
+            <span class="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-dhahabi-purple to-dhahabi-cyan">+10K</span>
+            <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Entregas Completadas</p>
+        </div>
+        <div class="space-y-1">
+            <span class="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-dhahabi-purple to-dhahabi-cyan">99.8%</span>
+            <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Satisfacción en Envíos</p>
+        </div>
+        <div class="space-y-1">
+            <span class="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-dhahabi-purple to-dhahabi-cyan">24/7</span>
+            <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Soporte y Rastreo</p>
+        </div>
+        <div class="space-y-1">
+            <span class="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-dhahabi-purple to-dhahabi-cyan">100%</span>
+            <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Plataformas Integradas</p>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS SECTION -->
+
+
+    <!-- ECOSYSTEM / SERVICES SECTION -->
+    <section id="ecosystem" class="max-w-7xl mx-auto px-4 py-24">
+        <div class="mb-14 text-center md:text-left">
+            <h2 class="text-xs uppercase tracking-widest text-dhahabi-cyan font-bold mb-2">NUESTRAS DIVISIONES</h2>
+            <h3 class="text-3xl sm:text-5xl font-black tracking-tight">Un Ecosistema, Soluciones Infinitas</h3>
+            <p class="text-slate-400 text-base mt-3 max-w-2xl">Selecciona la plataforma del ecosistema Dhahabi a la que deseas acceder hoy.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- CARD 1 -->
+            <div class="glass-card rounded-3xl p-7 transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between group">
+                <div>
+                    <div class="relative overflow-hidden rounded-2xl mb-6 bg-slate-800/50 p-4 border border-slate-700/50 flex items-center justify-center h-48">
+                        <div class="text-center">
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-dhahabi-purple to-dhahabi-cyan p-[2px] mx-auto mb-3 shadow-lg">
+                                <div class="w-full h-full bg-slate-950 rounded-[14px] flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-dhahabi-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                                </div>
+                            </div>
+                            <span class="text-lg font-black text-white tracking-tight">dhahabi <span class="text-dhahabi-cyan">mercado</span></span>
+                        </div>
+                    </div>
+                    <span class="bg-emerald-500/10 text-emerald-400 text-[11px] px-3 py-1 rounded-full font-bold tracking-wide uppercase border border-emerald-500/30 inline-block mb-4">
+                        🟢 Plataforma Activa
+                    </span>
+                    <h4 class="text-2xl font-bold text-white group-hover:text-dhahabi-cyan transition-colors">Dhahabi Market</h4>
+                    <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+                        Plataforma de comercio electrónico integral. Compra productos locales y globales, gestiona tu carrito y realiza envíos garantizados.
+                    </p>
+                </div>
+                <!-- BOTONES DE DHAHABI MARKET -->
+<div class="pt-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
+    <!-- Botón 1: Ir a la Web -->
+    <button onclick="accessService('Dhahabi Market Web')" class="w-full bg-gradient-to-r from-dhahabi-purple to-dhahabi-cyan hover:opacity-90 text-slate-950 font-bold py-3 px-2 rounded-xl text-center text-xs uppercase tracking-wider transition shadow-md flex items-center justify-center gap-1.5">
+        <svg class="w-4 h-4 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+        </svg>
+        Ir a la Web
+    </button>
+
+    <!-- Botón 2: Sitio de Descarga -->
+    <button onclick="accessService('Sitio de Descarga App')" class="w-full bg-slate-800/90 hover:bg-slate-700/90 text-slate-200 border border-slate-700/80 font-semibold py-3 px-2 rounded-xl text-center text-xs uppercase tracking-wider transition flex items-center justify-center gap-1.5 hover:border-dhahabi-cyan">
+        <svg class="w-4 h-4 text-dhahabi-cyan" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.523 15.3414C17.06 15.3414 16.685 15.7164 16.685 16.1794C16.685 16.6424 17.06 17.0174 17.523 17.0174C17.986 17.0174 18.361 16.6424 18.361 16.1794C18.361 15.7164 17.986 15.3414 17.523 15.3414ZM6.477 15.3414C6.014 15.3414 5.639 15.7164 5.639 16.1794C5.639 16.6424 6.014 17.0174 6.477 17.0174C6.94 17.0174 7.315 16.6424 7.315 16.1794C7.315 15.7164 6.94 15.3414 6.477 15.3414Z"/>
+        </svg>
+        Descargar App
+    </button>
+</div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="glass-card rounded-3xl p-7 transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between group">
+                <div>
+                    <div class="relative overflow-hidden rounded-2xl mb-6 bg-slate-800/50 p-4 border border-slate-700/50 flex items-center justify-center h-48">
+                        <div class="text-center">
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-dhahabi-purple to-purple-400 p-[2px] mx-auto mb-3 shadow-lg">
+                                <div class="w-full h-full bg-slate-950 rounded-[14px] flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-dhahabi-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h5m-5 0V11m0 0h5m-5 0H7"></path></svg>
+                                </div>
+                            </div>
+                            <span class="text-lg font-black text-white tracking-tight">dhahabi <span class="text-dhahabi-purple">agency</span></span>
+                        </div>
+                    </div>
+                    <span class="bg-emerald-500/10 text-emerald-400 text-[11px] px-3 py-1 rounded-full font-bold tracking-wide uppercase border border-emerald-500/30 inline-block mb-4">
+                        🟢 Plataforma Activa
+                    </span>
+                    <h4 class="text-2xl font-bold text-white group-hover:text-dhahabi-purple transition-colors">Dhahabi Agency</h4>
+                    <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+                        Servicios corporativos, consultoría de negocios, gestión de proyectos y desarrollo de soluciones a la medida para empresas.
+                    </p>
+                </div>
+                <div class="pt-8">
+                    <button onclick="accessService('Dhahabi Agency')" class="w-full bg-dhahabi-purple hover:bg-dhahabi-deepPurple text-white font-bold py-3 rounded-xl text-center text-sm transition shadow-md">
+                        Visitar Web de Agencia
+                    </button>
+                </div>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="glass-card rounded-3xl p-7 transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between group">
+                <div>
+                    <div class="relative overflow-hidden rounded-2xl mb-6 bg-slate-800/50 p-4 border border-slate-700/50 flex items-center justify-center h-48">
+                        <div class="text-center">
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-cyan-400 to-dhahabi-cyan p-[2px] mx-auto mb-3 shadow-lg">
+                                <div class="w-full h-full bg-slate-950 rounded-[14px] flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-dhahabi-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2m-4-1v8m0 0l3-3m-3 3L9 8m-5 5h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414a1 1 0 01.707-.293H20"></path></svg>
+                                </div>
+                            </div>
+                            <span class="text-lg font-black text-white tracking-tight">dhahabi <span class="text-dhahabi-cyan">shehena</span></span>
+                        </div>
+                    </div>
+                    <span class="bg-emerald-500/10 text-emerald-400 text-[11px] px-3 py-1 rounded-full font-bold tracking-wide uppercase border border-emerald-500/30 inline-block mb-4">
+                        🟢 Plataforma Activa
+                    </span>
+                    <h4 class="text-2xl font-bold text-white group-hover:text-dhahabi-cyan transition-colors">Dhahabi Shehena</h4>
+                    <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+                        Gestión logística, paquetería y envíos de carga nacional e internacional con rastreo en tiempo real para tus mercancías.
+                    </p>
+                </div>
+                <div class="pt-8">
+                    <button onclick="accessService('Dhahabi Shehena')" class="w-full bg-gradient-to-r from-dhahabi-cyan to-teal-500 hover:opacity-90 text-slate-950 font-bold py-3 rounded-xl text-center text-sm transition shadow-md">
+                        Acceder a Shehena Carga
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="bg-slate-900/40 border-y border-slate-800/80 py-20 px-4">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-xs uppercase tracking-widest text-dhahabi-cyan font-bold mb-2">SOBRE DHAHABI ENTERPRISE</h2>
+                <h3 class="text-3xl sm:text-4xl font-black tracking-tight text-white">Innovación, Conectividad y Soluciones Digitales</h3>
+                <p class="text-slate-300 text-base mt-4 leading-relaxed">
+                    En Dhahabi Enterprise integramos plataformas de comercio electrónico, gestión corporativa y logística avanzada para conectar mercados y personas. Nuestro compromiso es ofrecer tecnología accesible, confiable e intuitiva respaldada por altos estándares de servicio.
+                </p>
+            </div>
+            <div class="grid grid-cols-3 gap-4 text-center">
+                <div class="glass-panel rounded-2xl p-6 border border-slate-800">
+                    <span class="text-4xl font-black text-dhahabi-cyan block mb-1">+16 000</span>
+                    <span class="text-xs text-slate-400 font-medium uppercase tracking-wider">Clientes</span>
+                </div>
+                <div class="glass-panel rounded-2xl p-6 border border-slate-800">
+                    <span class="text-4xl font-black text-dhahabi-purple block mb-1">4</span>
+                    <span class="text-xs text-slate-400 font-medium uppercase tracking-wider">Idiomas Globales</span>
+                </div>
+                <div class="glass-panel rounded-2xl p-6 border border-slate-800">
+                    <span class="text-4xl font-black text-dhahabi-cyan block mb-1">100%</span>
+                    <span class="text-xs text-slate-400 font-medium uppercase tracking-wider">Cobertura Digital</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- TESTIMONIALS SECTION -->
+<!-- TESTIMONIALS SECTION -->
+<section class="max-w-7xl mx-auto px-4 py-20 border-t border-slate-800/60">
+    <div class="text-center mb-10">
+        <h2 class="text-xs uppercase tracking-widest text-dhahabi-cyan font-bold mb-2">EXPERIENCIAS REALES</h2>
+        <h3 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white">Lo que Dicen de Nuestro Ecosistema</h3>
+    </div>
+
+    <!-- Pestañas de Filtrado -->
+    <div class="flex flex-wrap justify-center gap-2 mb-12">
+        <button onclick="filterTestimonials('all')" id="tab-all" class="testimonial-tab active border border-dhahabi-cyan bg-dhahabi-cyan/20 text-dhahabi-cyan text-xs font-bold px-4 py-2 rounded-xl transition shadow-sm">
+            Todos
+        </button>
+        <button onclick="filterTestimonials('market')" id="tab-market" class="testimonial-tab border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900/80 text-slate-700 dark:text-slate-300 hover:border-dhahabi-cyan text-xs font-bold px-4 py-2 rounded-xl transition">
+            Dhahabi Market
+        </button>
+        <button onclick="filterTestimonials('agency')" id="tab-agency" class="testimonial-tab border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900/80 text-slate-700 dark:text-slate-300 hover:border-dhahabi-purple text-xs font-bold px-4 py-2 rounded-xl transition">
+            Dhahabi Agency
+        </button>
+        <button onclick="filterTestimonials('shehena')" id="tab-shehena" class="testimonial-tab border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900/80 text-slate-700 dark:text-slate-300 hover:border-dhahabi-cyan text-xs font-bold px-4 py-2 rounded-xl transition">
+            Dhahabi Shehena
+        </button>
+    </div>
+
+    <!-- Envoltorio del Carrusel con Controles -->
+    <div class="relative max-w-6xl mx-auto px-6">
+        <!-- Botón Izquierdo -->
+        <button type="button" onclick="scrollTestimonials('left')" class="absolute -left-2 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-white flex items-center justify-center shadow-xl hover:bg-dhahabi-cyan hover:text-white transition duration-200 cursor-pointer">
+            &#10094;
+        </button>
+
+        <!-- Botón Derecho -->
+        <button type="button" onclick="scrollTestimonials('right')" class="absolute -right-2 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-white flex items-center justify-center shadow-xl hover:bg-dhahabi-cyan hover:text-white transition duration-200 cursor-pointer">
+            &#10095;
+        </button>
+
+        <!-- Contenedor del Carrusel -->
+        <div id="testimonials-container" class="flex gap-6 overflow-x-auto scroll-smooth py-4 no-scrollbar">
+            
+            <div class="testimonial-card glass-card rounded-3xl p-6 flex flex-col justify-between shrink-0" data-platform="market">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-[10px] font-bold uppercase tracking-wider bg-dhahabi-cyan/10 text-dhahabi-cyan px-2.5 py-1 rounded-md border border-dhahabi-cyan/30">Dhahabi Market</span>
+                        <span class="text-amber-400 text-xs">★★★★★</span>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm italic leading-relaxed mb-6">
+                        "La facilidad para hacer las compras en la app y la rapidez con la que llegan las entregas locales es impresionante. Todo transparente."
+                    </p>
+                </div>
+                <div class="border-t border-slate-200 dark:border-slate-800/80 pt-4">
+                    <span class="text-sm font-bold text-slate-900 dark:text-white block">Carlos R.</span>
+                    <span class="text-xs text-slate-500 dark:text-slate-400">Cliente Recurrente</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card glass-card rounded-3xl p-6 flex flex-col justify-between shrink-0" data-platform="agency">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-[10px] font-bold uppercase tracking-wider bg-dhahabi-purple/20 text-dhahabi-purple px-2.5 py-1 rounded-md border border-dhahabi-purple/30">Dhahabi Agency</span>
+                        <span class="text-amber-400 text-xs">★★★★★</span>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm italic leading-relaxed mb-6">
+                        "Nos asesoraron en la estructura digital y gestión de proyectos para nuestro negocio. Profesionalismo al 100% en cada entregable."
+                    </p>
+                </div>
+                <div class="border-t border-slate-200 dark:border-slate-800/80 pt-4">
+                    <span class="text-sm font-bold text-slate-900 dark:text-white block">Elena M.</span>
+                    <span class="text-xs text-slate-500 dark:text-slate-400">Directora de Operaciones</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card glass-card rounded-3xl p-6 flex flex-col justify-between shrink-0" data-platform="shehena">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-[10px] font-bold uppercase tracking-wider bg-teal-500/10 text-teal-400 px-2.5 py-1 rounded-md border border-teal-500/30">Dhahabi Shehena</span>
+                        <span class="text-amber-400 text-xs">★★★★★</span>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm italic leading-relaxed mb-6">
+                        "Excelente servicio para el envío de paquetes y gestión logística. El rastreo funciona sin fallas y la atención por WhatsApp es rápida."
+                    </p>
+                </div>
+                <div class="border-t border-slate-200 dark:border-slate-800/80 pt-4">
+                    <span class="text-sm font-bold text-slate-900 dark:text-white block">Marcos V.</span>
+                    <span class="text-xs text-slate-500 dark:text-slate-400">Envío de Carga</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="text-center mt-12">
+    <button onclick="openReviewModal()" class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-xs font-bold rounded-2xl group bg-gradient-to-br from-dhahabi-purple to-dhahabi-cyan group-hover:from-dhahabi-purple group-hover:to-dhahabi-cyan hover:text-white dark:hover:text-slate-950 text-slate-900 dark:text-white shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] transition-all duration-300 transform hover:-translate-y-0.5">
+        <span class="relative px-6 py-3.5 transition-all ease-in duration-200 bg-white dark:bg-slate-950 rounded-[14px] group-hover:bg-opacity-0 flex items-center gap-2 tracking-wider uppercase">
+            <svg class="w-4 h-4 text-amber-500 group-hover:text-white dark:group-hover:text-slate-950 transition-colors" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            Compartir mi Experiencia
+        </span>
+    </button>
+</div>
+<!-- MODAL DINÁMICO DE RESEÑAS -->
+<div id="review-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4 transition-all duration-300 opacity-0">
+    <div id="review-modal-content" class="glass-panel border border-slate-700/80 rounded-3xl p-6 sm:p-8 max-w-lg w-full relative shadow-[0_10px_40px_rgba(0,0,0,0.5)] transform scale-95 transition-all duration-300">
+        
+        <!-- Botón Cierre -->
+        <button onclick="closeReviewModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-900 border border-slate-700 text-slate-400 hover:text-white hover:border-dhahabi-cyan flex items-center justify-center transition">&times;</button>
+        
+        <!-- Encabezado -->
+        <div class="text-center mb-6">
+            <span class="text-[10px] font-bold text-dhahabi-cyan uppercase tracking-widest bg-dhahabi-cyan/10 px-3 py-1 rounded-full border border-dhahabi-cyan/20">Tu Opinión Cuenta</span>
+            <h4 class="text-2xl font-black text-white mt-2">Valora tu Experiencia</h4>
+            <p class="text-xs text-slate-400 mt-1">Verificamos tu usuario registrado para validar tu reseña.</p>
+        </div>
+
+        <form id="review-form" onsubmit="submitReview(event)" class="space-y-4">
+            <!-- Selector Dinámico de Estrellas -->
+            <div class="text-center bg-slate-900/60 p-3 rounded-2xl border border-slate-800">
+                <label class="block text-xs font-semibold text-slate-300 mb-2">Puntuación</label>
+                <div class="flex justify-center gap-2" id="star-rating-container">
+                    <button type="button" onclick="setRating(1)" onmouseover="hoverRating(1)" onmouseleave="resetHover()" class="star-btn text-2xl text-slate-600 hover:scale-125 transition-transform" data-star="1">★</button>
+                    <button type="button" onclick="setRating(2)" onmouseover="hoverRating(2)" onmouseleave="resetHover()" class="star-btn text-2xl text-slate-600 hover:scale-125 transition-transform" data-star="2">★</button>
+                    <button type="button" onclick="setRating(3)" onmouseover="hoverRating(3)" onmouseleave="resetHover()" class="star-btn text-2xl text-slate-600 hover:scale-125 transition-transform" data-star="3">★</button>
+                    <button type="button" onclick="setRating(4)" onmouseover="hoverRating(4)" onmouseleave="resetHover()" class="star-btn text-2xl text-slate-600 hover:scale-125 transition-transform" data-star="4">★</button>
+                    <button type="button" onclick="setRating(5)" onmouseover="hoverRating(5)" onmouseleave="resetHover()" class="star-btn text-2xl text-slate-600 hover:scale-125 transition-transform" data-star="5">★</button>
+                </div>
+                <input type="hidden" id="rev-stars" value="5">
+            </div>
+
+            <!-- Datos de Usuario -->
+            <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Usuario o Correo Registrado</label>
+                <input type="text" id="rev-user" required class="w-full bg-slate-900 border border-slate-700/80 rounded-xl px-4 py-3 text-xs text-white focus:border-dhahabi-cyan focus:ring-1 focus:ring-dhahabi-cyan outline-none transition" placeholder="ejemplo@correo.com o tu_usuario">
+            </div>
+
+            <!-- Selección de Plataforma (Dropdown Personalizado) -->
+<div>
+    <label class="block text-xs font-semibold text-slate-300 mb-1">Plataforma a Evaluar</label>
+    <div class="relative" id="custom-dropdown-platform">
+        <input type="hidden" id="rev-platform" value="market" required>
+        
+        <button type="button" onclick="toggleCustomDropdown('platform')" class="w-full bg-slate-900 border border-slate-700/80 rounded-xl px-4 py-3 text-xs text-white focus:border-dhahabi-cyan outline-none transition flex items-center justify-between">
+            <span id="platform-selected-text" class="font-medium">Dhahabi Market</span>
+            <svg class="w-4 h-4 text-slate-400 transition-transform duration-200" id="platform-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+        </button>
+        <div id="platform-options" class="absolute left-0 right-0 z-50 mt-1 bg-slate-900/95 border border-slate-700 rounded-xl shadow-2xl hidden overflow-hidden backdrop-blur-md">
+            <div onclick="selectPlatformOption('market', 'Dhahabi Market')" class="px-4 py-2.5 text-xs font-medium text-slate-200 hover:bg-dhahabi-purple/20 hover:text-dhahabi-cyan cursor-pointer transition flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-dhahabi-cyan"></span>
+                Dhahabi Market
+            </div>
+            <div onclick="selectPlatformOption('agency', 'Dhahabi Agency')" class="px-4 py-2.5 text-xs font-medium text-slate-200 hover:bg-dhahabi-purple/20 hover:text-dhahabi-purple cursor-pointer transition flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-dhahabi-purple"></span>
+                Dhahabi Agency
+            </div>
+            <div onclick="selectPlatformOption('shehena', 'Dhahabi Shehena')" class="px-4 py-2.5 text-xs font-medium text-slate-200 hover:bg-dhahabi-purple/20 hover:text-teal-400 cursor-pointer transition flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
+                Dhahabi Shehena
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- Comentario -->
+            <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Tu Reseña</label>
+                <textarea id="rev-comment" required rows="3" class="w-full bg-slate-900 border border-slate-700/80 rounded-xl px-4 py-3 text-xs text-white focus:border-dhahabi-cyan outline-none transition resize-none" placeholder="¿Qué te pareció nuestro servicio?"></textarea>
+            </div>
+
+            <!-- Botón Publicar (Estilo Degradado Animado) -->
+            <button type="submit" id="btn-submit-review" class="w-full bg-gradient-to-r from-dhahabi-purple via-cyan-500 to-dhahabi-cyan text-slate-950 font-black py-3.5 rounded-xl text-xs uppercase tracking-widest transition-all duration-300 hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] active:scale-98 flex items-center justify-center gap-2">
+                <span>Publicar Reseña</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+        </form>
+    </div>
+</div>
+
+    <!-- FAQ SECTION -->
+<section class="max-w-4xl mx-auto px-4 py-16">
+    <div class="text-center mb-12">
+        <h2 class="text-xs uppercase tracking-widest text-dhahabi-cyan font-bold mb-2">RESOLVEMOS TUS DUDAS</h2>
+        <h3 class="text-3xl font-black text-white">Preguntas Frecuentes</h3>
+    </div>
+
+    <div class="space-y-4">
+        <!-- FAQ 1 -->
+        <div class="glass-card rounded-2xl p-5 cursor-pointer" onclick="toggleFaq(1)">
+            <div class="flex justify-between items-center font-bold text-white text-base">
+                <span>¿Cómo me pongo en contacto con atención al cliente?</span>
+                <span id="faq-icon-1" class="text-dhahabi-cyan transition-transform">+</span>
+            </div>
+            <p id="faq-ans-1" class="hidden text-slate-400 text-sm mt-3 leading-relaxed">
+                Puedes escribirnos directamente a nuestro correo oficial <strong>dhahabienterprise@dhahabi.ae</strong> o contactarnos vía WhatsApp al <strong>+53 63515081</strong>.
+            </p>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="glass-card rounded-2xl p-5 cursor-pointer" onclick="toggleFaq(2)">
+            <div class="flex justify-between items-center font-bold text-white text-base">
+                <span>¿Dhahabi Market y Dhahabi Shehena funcionan de forma integrada?</span>
+                <span id="faq-icon-2" class="text-dhahabi-cyan transition-transform">+</span>
+            </div>
+            <p id="faq-ans-2" class="hidden text-slate-400 text-sm mt-3 leading-relaxed">
+                Sí. Todas nuestras divisiones están interconectadas. Cuando realizas una compra en la plataforma de comercio electrónico, la distribución y logística pueden ser rastreadas mediante Shehena.
+            </p>
+        </div>
+    </div>
+</section>
+
+    <!-- FOOTER -->
+    <footer id="contact" class="border-t border-slate-800 bg-[#05070d] py-14 px-4 text-slate-400 text-sm">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="text-2xl font-black text-white tracking-tight">dhahabi</span>
+                    <span class="text-xs uppercase tracking-widest text-dhahabi-cyan font-bold bg-dhahabi-cyan/10 border border-dhahabi-cyan/30 px-2 py-0.5 rounded">Enterprise</span>
+                </div>
+                <p class="text-slate-400 text-sm max-w-sm leading-relaxed">
+                    Soluciones integrales de comercio, agencia y transporte de carga global.
+                </p>
+            </div>
+            <div>
+                <h5 class="text-white font-bold mb-4">Ecosistema</h5>
+                <ul class="space-y-2.5 text-sm">
+                    <li><a href="#ecosystem" class="hover:text-dhahabi-cyan transition">Dhahabi Market</a></li>
+                    <li><a href="#ecosystem" class="hover:text-dhahabi-purple transition">Dhahabi Agency</a></li>
+                    <li><a href="#ecosystem" class="hover:text-dhahabi-cyan transition">Dhahabi Shehena</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-white font-bold mb-4">Soporte & Contacto</h5>
+                <ul class="space-y-2.5 text-sm">
+                    <li><a href="mailto:dhahabienterprise@dhahabi.ae" class="hover:text-dhahabi-cyan transition">Email: dhahabienterprise@dhahabi.ae</li>
+                    <li><a href="https://wa.me/5363515081"class="hover:text-dhahabi-purple transition">WhatsApp: +53 63515081</a></li>
+                    <li><a href="nosotros.html" class="hover:text-dhahabi-cyan transition">Sobre Nosotros</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 mt-12 pt-6 border-t border-slate-800/80 text-center text-xs text-slate-500">
+            &copy; 2026 Dhahabi Enterprise. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOATING BUTTON -->
+<a href="https://wa.me/5363515081?text=Hola,%20quisiera%20más%20información%20sobre%20los%20servicios%20de%20Dhahabi%20Enterprise" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   class="fixed bottom-6 right-6 z-50 bg-emerald-500 hover:bg-emerald-400 text-slate-950 p-3.5 rounded-full shadow-[0_0_25px_rgba(16,185,129,0.5)] transition-all duration-300 hover:scale-110 flex items-center justify-center group"
+   aria-label="Contactar por WhatsApp">
+    <svg class="w-7 h-7 fill-current text-slate-950" viewBox="0 0 24 24">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.572-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+    </svg>
+    <!-- Tooltip emergente -->
+<span class="absolute right-full mr-3 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-xs font-bold px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none z-50">
+    Soporte Directo
+</span>
+
+<!-- OVERLAY LOADER (Verificación en curso) -->
+<div id="review-loader" class="fixed inset-0 z-50 hidden flex-col items-center justify-center bg-slate-950/80 backdrop-blur-md transition-opacity">
+    <div class="w-16 h-16 border-4 border-dhahabi-cyan/30 border-t-dhahabi-cyan rounded-full animate-spin mb-4"></div>
+    <p class="text-white font-bold text-sm tracking-wide">Verificando información...</p>
+    <p class="text-slate-400 text-xs mt-1">Por favor, espera unos segundos</p>
+</div>
+
+<!-- MODAL DE NOTIFICACIÓN TEMÁTICA (Centro de Pantalla) -->
+<div id="custom-alert" class="fixed inset-0 z-50 hidden items-center justify-center px-4 bg-slate-950/70 backdrop-blur-sm">
+    <div class="glass-card max-w-sm w-full rounded-3xl p-6 text-center border border-slate-700/60 shadow-2xl transform transition-all scale-95 opacity-0 duration-300" id="custom-alert-card">
+        <!-- Icono Dinámico -->
+        <div id="alert-icon-container" class="w-14 h-14 mx-auto mb-4 rounded-full flex items-center justify-center text-2xl">
+            <!-- Inyectado mediante JS -->
+        </div>
+        
+        <!-- Título y Mensaje -->
+        <h4 id="alert-title" class="text-lg font-bold text-white mb-2"></h4>
+        <p id="alert-message" class="text-slate-300 text-sm leading-relaxed mb-6"></p>
+        
+        <!-- Botón de Cierre -->
+        <button onclick="closeCustomAlert()" class="w-full py-2.5 px-4 rounded-xl bg-dhahabi-cyan text-slate-950 font-bold text-sm hover:opacity-90 transition cursor-pointer">
+            Entendido
+        </button>
+    </div>
+</div>
+
+    <!-- Carga del SDK de Google Translate -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'es',
+                includedLanguages: 'es,en,sw,ar',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- External Script -->
+    <script src="script.js"></script>
+</body>
+</html>
