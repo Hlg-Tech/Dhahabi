@@ -110,9 +110,15 @@ function selectLanguageOption(langCode, labelText) {
 }
 
 // Función para abrir/cerrar preguntas frecuentes
-function toggleFaq(id) {
-    const ans = document.getElementById(`faq-ans-${id}`);
-    const icon = document.getElementById(`faq-icon-${id}`);
+function toggleFaqElement(element) {
+    const card = element.closest('.glass-card');
+    if (!card) return;
+
+    // Busca la respuesta por clase, sin importar si es <p>, <div>, etc.
+    const ans = card.querySelector('.faq-answer');
+    const icon = card.querySelector('.faq-icon');
+
+    if (!ans || !icon) return;
 
     if (ans.classList.contains("hidden")) {
         ans.classList.remove("hidden");
