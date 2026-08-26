@@ -505,51 +505,38 @@
 
     <div class="space-y-4">
         <!-- FAQ 1 -->
-        <div class="glass-card rounded-2xl p-5 cursor-pointer" onclick="toggleFaq(1)">
+        <div class="glass-card rounded-2xl p-5 cursor-pointer" onclick="toggleFaqElement(this)">
             <div class="flex justify-between items-center font-bold text-white text-base">
                 <span>¿Cómo me pongo en contacto con atención al cliente?</span>
-                <span id="faq-icon-1" class="text-dhahabi-cyan transition-transform">+</span>
+                <span class="faq-icon text-dhahabi-cyan transition-transform">+</span>
             </div>
-            <p id="faq-ans-1" class="hidden text-slate-400 text-sm mt-3 leading-relaxed">
-                Puedes escribirnos directamente a nuestro correo oficial <strong>dhahabienterprise@dhahabi.ae</strong> o contactarnos vía WhatsApp al <strong>+53 63515081</strong>.
+            <p class="hidden text-slate-400 text-sm mt-3 leading-relaxed">
+                Puedes escribirnos directamente a nuestro correo oficial <strong>market@dhahabi.ae</strong> o contactarnos vía WhatsApp al <strong>+53 63515081</strong>.
             </p>
         </div>
 
         <!-- FAQ 2 -->
-        <div class="glass-card rounded-2xl p-5 cursor-pointer" onclick="toggleFaq(2)">
+        <div class="glass-card rounded-2xl p-5 cursor-pointer" onclick="toggleFaqElement(this)">
             <div class="flex justify-between items-center font-bold text-white text-base">
-                <span>¿Qué metódos de pago están disponibles en Dhahabi Market?</span>
-                <span id="faq-icon-2" class="text-dhahabi-cyan transition-transform">+</span>
+                <span>¿Qué métodos de pago están disponibles en Dhahabi Market?</span>
+                <span class="faq-icon text-dhahabi-cyan transition-transform">+</span>
             </div>
-            <p id="faq-ans-2" class="hidden text-slate-400 text-sm mt-3 leading-relaxed">
-                💳 Pagos Internacionales
-            Si realiza la compra desde el extranjero (o utilizando tarjetas internacionales), puede pagar de forma rápida y segura a través de:
-         
-            PayPal
-            Tarjetas Visa (débito o crédito)
-            Tarjetas Mastercard (débito o crédito)
-            Zelle
-
-                🇨🇺 Pagos Locales en Cuba
-            Para compras o pagos dentro del territorio nacional, aceptamos:
-
-            Tarjetas en USD: Tarjeta Clásica y Tarjeta Tropical.
-
-            Efectivo: Aceptamos billetes en CUP, USD y EUR.
-            </p>
+            <div class="hidden text-slate-400 text-sm mt-3 leading-relaxed">
+                <p class="mb-2"><strong>💳 Pagos Internacionales:</strong> PayPal, Visa, Mastercard, Zelle.</p>
+                <p><strong>🇨🇺 Pagos Locales en Cuba:</strong> Tarjeta Clásica, Tarjeta Tropical, Efectivo (CUP, USD, EUR).</p>
+            </div>
         </div>
 
         <!-- FAQ 3 -->
-        <div class="glass-card rounded-2xl p-5 cursor-pointer" onclick="toggleFaq(3)">
+        <div class="glass-card rounded-2xl p-5 cursor-pointer" onclick="toggleFaqElement(this)">
             <div class="flex justify-between items-center font-bold text-white text-base">
-                <span>¿Que vuelos ofrece Dhahabi Agency?</span>
-                <span id="faq-icon-3" class="text-dhahabi-cyan transition-transform">+</span>
+                <span>¿Qué servicios ofrece Dhahabi Agency?</span>
+                <span class="faq-icon text-dhahabi-cyan transition-transform">+</span>
             </div>
-            <p id="faq-ans-3" class="hidden text-slate-400 text-sm mt-3 leading-relaxed">
-                En Dhahabi agenci ofrecemos una gran gama de destinos como: Dubái, Canadá, Rusia, Brasil y muchos más...
+            <p class="hidden text-slate-400 text-sm mt-3 leading-relaxed">
+                Ofrecemos desarrollo de aplicaciones web y móviles, arquitectura digital, branding y consultoría técnica personalizada.
             </p>
         </div>
-        
     </div>
 </section>
 
