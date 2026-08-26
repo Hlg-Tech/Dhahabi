@@ -248,17 +248,17 @@ html:not(.dark) .bg-dhahabi-cyan\/20 {
 
 /* Ancho responsivo de las tarjetas dentro del carrusel */
 .testimonial-card {
-    width: calc(38% - 16px);
+    width: calc(38% - 16em);
     min-width: 400px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1024em) {
     .testimonial-card {
         width: calc(50% - 12px);
     }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 640em) {
     .testimonial-card {
         width: 100%;
     }
